@@ -1,0 +1,76 @@
+.header {
+    width: 100%;
+}
+
+.header nav {
+    background-color: darkgreen;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-navbar {
+    width: 50%;
+    float: left;
+}
+
+/*#nav_item_recipes:hover + #nav_submenu {*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    z-index: 20;*/
+/*    background-color: darkseagreen;*/
+/*}*/
+
+.navbar-item:hover .nav__submenu {
+    display: block;
+    position: absolute;
+    z-index: 20;
+    background-color: darkseagreen;
+}
+
+/*#nav_submenu:hover + #nav_item_recipes {*/
+/*    background-color: darkseagreen;*/
+/*}*/
+
+.navbar-item:hover .nav_inner {
+    background-color: darkseagreen;
+}
+
+#nav_item_recipes:hover + .nav__submenu-item {
+    color: darkolivegreen;
+}
+
+#nav_item_recipes:hover {
+    background-color: darkseagreen;
+    display: block;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.header-navbar ul li {
+    list-style: none;
+    padding-right: 3rem;
+    font-size: large;
+}
+
+a, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+
+}
+
+.header-search {
+    margin: 16px 0;
+    padding: 0 40px;
+}
+
+.nav_item-hovered {
+    font-size: 20px;
+}

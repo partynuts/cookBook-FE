@@ -1,0 +1,32 @@
+
+.nav__submenu {
+    font-weight: 300;
+    text-transform: none;
+    display: none;
+    /*visibility: hidden;*/
+    position: absolute;
+    width: 180px;
+}
+
+
+.nav__submenu:hover {
+    display: block;
+    background-color: darkseagreen;
+}
+
+.nav__submenu-item:hover {
+    display: block;
+}
+
+.nav__submenu-item:hover + .nav__submenu {
+    background-color: darkseagreen;
+}
+
+.nav__submenu-item {
+    cursor: pointer;
+}
+
+/*.nav__submenu-item:hover {*/
+/*    background: cornflowerblue;*/
+/*}*/
+
