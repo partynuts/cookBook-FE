@@ -1,5 +1,5 @@
 import * as React from 'react';
-import logo from '../../logo.svg';
+
 // import './style.css';
 
 function Category() {

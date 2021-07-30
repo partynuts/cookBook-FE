@@ -14,11 +14,11 @@ export const menuItems: MenuItem[] = [
         subItems: [
             {
                 name: 'All recipes',
-                url: '/recipe'
+                url: '/recipes'
             },
             {
                 name: 'Salads',
-                url: '/recipe'
+                url: '/recipes?search=salads'
             },
             {
                 name: 'Soups',
@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
             },
             {
                 name: 'Add recipe',
-                url: '/recipe'
+                url: '/recipes/add'
             },
         ]
     },
@@ -35,19 +35,19 @@ export const menuItems: MenuItem[] = [
         subItems: [
             {
                 name: 'All categories',
-                url: '/category'
+                url: '/categories'
             },
             {
                 name: 'Salads',
-                url: '/category'
+                url: '/categories'
             },
             {
                 name: 'Soups',
-                url: '/category'
+                url: '/categories'
             },
             {
                 name: 'Add recipe',
-                url: '/category'
+                url: '/categories'
             },
         ]
     }

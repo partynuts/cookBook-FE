@@ -1,0 +1,20 @@
+.recipes-page {
+    padding: 4vh 3vw;
+    color: darkolivegreen;
+}
+
+.recipes-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 50%;
+}
+
+.form * {
+    margin-bottom: 2vh;
+}

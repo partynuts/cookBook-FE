@@ -10,21 +10,14 @@ function Header() {
             <nav>
                 <div className="header-navbar">
                     <ul>
-                        {menuItems.map((item: MenuItem, i: number) => {
-
-                                console.log('ITEM', item);
-                                return (
-
-                                    <li className="navbar-item" key={i}>
-                                        <div id={`nav_item_${item.label.toLowerCase()}`} className='nav_inner'>
-                                            {item.label}
-                                            <Submenu submenuItems={item.subItems} />
-                                        </div>
-                                    </li>
-                                )
-                            }
+                        {menuItems.map((item: MenuItem, i: number) =>
+                            <li className="navbar-item" key={i}>
+                                <div id={`nav_item_${item.label.toLowerCase()}`} className='nav_inner'>
+                                    {item.label}
+                                    <Submenu submenuItems={item.subItems} />
+                                </div>
+                            </li>
                         )}
-
                     </ul>
                 </div>
                 <div className="header-search">
