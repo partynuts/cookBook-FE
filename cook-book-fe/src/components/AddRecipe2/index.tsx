@@ -71,7 +71,7 @@ const AddRecipe2 = () => {
                         <label>Ingredients:</label>
                         {ingredients.map((ingredient, i) => {
                             return (
-                                <>
+                                <div className='ingredient-wrapper'>
                                     <input type='text' name='ingredients' value={ingredient}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                             ingredients.splice(i, 1, e.target.value)
@@ -79,7 +79,7 @@ const AddRecipe2 = () => {
                                             setRecipe({...recipe, ingredients})
                                         }}
                                     />
-                                    <button onClick={() => {
+                                    <button className='ingredient-btn-remove' onClick={() => {
                                         const ingr = ingredients.filter((ing, index) => {
                                             return ingredient !== ing;
                                         });
@@ -90,11 +90,17 @@ const AddRecipe2 = () => {
                                         console.log("INGREDIENTS NEU", ingredients)
                                         setRecipe({...recipe, ingredients});
                                         console.log("RECIPE NACH LÖschen", recipe.ingredients)
-                                    }}>-</button>
-                                </>
+                                    }}>-
+                                    </button>
+                                </div>
                             )
                         })}
-                        <button onClick={() => setIngredients([...ingredients, ''])}>+</button>
+                        <div className='ingredient-wrapper'>
+                            {/*<label>Add ingredient:</label>*/}
+                            <button className='ingredient-btn-add' onClick={() => setIngredients([...ingredients, ''])}>
+                                Add ingredient
+                            </button>
+                        </div>
 
                         {/*<input type='text' name='ingredients' value={recipe.ingredients}*/}
                         {/*    onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}*/}
@@ -114,7 +120,7 @@ const AddRecipe2 = () => {
                             }
                         </select>
                         }
-                        <input type='submit' value='Submit' />
+                        <input className='submit-btn' type='submit' value='Submit' />
                     </form>
                 </div>
             </div>

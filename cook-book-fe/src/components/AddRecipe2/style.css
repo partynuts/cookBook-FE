@@ -18,3 +18,35 @@
 .form * {
     margin-bottom: 2vh;
 }
+
+.ingredient-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ingredient-wrapper input {
+    width: 100%;
+    margin-right: 2vw;
+}
+
+.ingredient-btn-remove {
+    width: 10%;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid grey;
+    border-radius: 0.2vw;
+    background-color: lightgray;
+}
+
+.ingredient-btn-add {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid grey;
+    border-radius: 0.2vw;
+    background-color: lightgray;
+}
+
+.submit-btn {
+
+}
