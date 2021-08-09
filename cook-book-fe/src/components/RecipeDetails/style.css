@@ -1,0 +1,12 @@
+.recipe-element {
+    margin-bottom: 5vh;
+}
+
+.element {
+    line-height: 2.5vh;
+}
+
+label {
+    font-weight: bold;
+    line-height: 5vh;
+}

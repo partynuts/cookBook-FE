@@ -3,7 +3,7 @@
     color: darkolivegreen;
 }
 
-.recipes-container {
+.add-recipes-page .recipes-container {
     display: flex;
     justify-content: space-between;
 }

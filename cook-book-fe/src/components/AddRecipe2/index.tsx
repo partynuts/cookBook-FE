@@ -80,16 +80,12 @@ const AddRecipe2 = () => {
                                         }}
                                     />
                                     <button className='ingredient-btn-remove' onClick={() => {
-                                        const ingr = ingredients.filter((ing, index) => {
+                                        const filteredIngredients = ingredients.filter((ing, index) => {
                                             return ingredient !== ing;
                                         });
-                                        console.log("INGREDIENTS FILTERED", ingr)
-                                        console.log("INGREDIENTS ALT", ingredients)
-                                        console.log("RECIPE INGREDIENTS ALT", recipe.ingredients)
-                                        setIngredients(ingr);
-                                        console.log("INGREDIENTS NEU", ingredients)
-                                        setRecipe({...recipe, ingredients});
-                                        console.log("RECIPE NACH LÖschen", recipe.ingredients)
+                                        console.log("INGREDIENTS FILTERED", filteredIngredients)
+                                        setIngredients(filteredIngredients);
+                                        setRecipe({...recipe, ingredients: filteredIngredients});
                                     }}>-
                                     </button>
                                 </div>
@@ -97,7 +93,7 @@ const AddRecipe2 = () => {
                         })}
                         <div className='ingredient-wrapper'>
                             {/*<label>Add ingredient:</label>*/}
-                            <button className='ingredient-btn-add' onClick={() => setIngredients([...ingredients, ''])}>
+                            <button type='button' className='ingredient-btn-add' onClick={() => setIngredients([...ingredients, ''])}>
                                 Add ingredient
                             </button>
                         </div>
@@ -120,7 +116,7 @@ const AddRecipe2 = () => {
                             }
                         </select>
                         }
-                        <input className='submit-btn' type='submit' value='Submit' />
+                        <button className='submit-btn' type='submit' value='Submit' />
                     </form>
                 </div>
             </div>

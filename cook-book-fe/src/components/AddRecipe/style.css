@@ -3,7 +3,7 @@
     color: darkolivegreen;
 }
 
-.recipes-container {
+.add-recipes-page .recipes-container {
     display: flex;
     justify-content: space-between;
 }
@@ -17,4 +17,26 @@
 
 .form * {
     margin-bottom: 2vh;
+}
+
+.success-message-wrapper {
+    width: 50%;
+    height: 5vh;
+    border-radius: 0.2vw;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.success-message-wrapper > div {
+    padding: 2vh 2vw;
+}
+
+.success-message-error {
+    border: solid 1px red;
+}
+
+.success-message-success {
+    border: solid 1px green;
 }

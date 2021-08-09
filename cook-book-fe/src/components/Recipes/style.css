@@ -1,0 +1,63 @@
+.recipes-page {
+    padding: 4vh 3vw;
+    color: darkolivegreen;
+}
+
+.recipes-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.recipe {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 20vw;
+    margin: 1vh 1vw 1vh 0;
+    padding: 1vh 1vw;
+    line-height: 3vh;
+    background-color: rgb(143,188,143); /*darkseagreen*/
+    border-radius: 0.5vw;
+    color: white;
+    align-items: center;
+}
+
+.recipe:hover {
+    background-color: darkgreen;
+}
+
+.recipe-title {
+    font-weight: bold;
+}
+
+.App .recipe-modal {
+    z-index: 20;
+    width: 90%;
+    height: 100%;
+    padding: 4vh 4vw 6vh 2vw;
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    background-color: rgba(143, 188, 143, 0.9);
+    color: white;
+}
+
+.recipe-modal__content {
+    width: 100%;
+    height: 100%;
+    padding: 1vh 1vw;
+    background-color: white;
+    color: darkgreen;
+}
+
+.recipe-modal__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholders-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}

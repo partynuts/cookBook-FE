@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './style.css';
 import Submenu from "../Submenu";
-import classnames from 'classnames';
 import {MenuItem, menuItems} from "../../config/menu";
 
 function Header() {
@@ -34,7 +33,7 @@ function Header() {
 export default Header;
 
 
-//                         <li className="navbar-item"><Link to="/recipe">Recipe</Link></li>
+//                         <li className="navbar-item"><Link to="/recipe">Recipes</Link></li>
 
 
 // models/menu.ts
