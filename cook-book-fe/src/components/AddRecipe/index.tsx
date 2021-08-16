@@ -32,11 +32,11 @@ const AddRecipe = () => {
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
         // e.preventDefault();
-        console.log("TARGET", e, e.target)
-        console.log("TYPE ", typeof e.target)
+        // console.log("TARGET", e, e.target)
+        // console.log("TYPE ", typeof e.target)
 
         const {name, value} = e.target;
-        console.log("VALUE", value, "Name ", name)
+        // console.log("VALUE", value, "Name ", name)
 
         if (name === 'ingredients') {
             setRecipe({...recipe, [name]: value.split(',')});
@@ -68,7 +68,6 @@ const AddRecipe = () => {
 
     return (
         <div className="App">
-            <Header />
             <div className="add-recipes-page">
                 <h2>Add new recipe</h2>
                 <div className="recipes-container">

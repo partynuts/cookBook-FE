@@ -4,6 +4,12 @@ import Header from "../Header";
 import {useParams} from "react-router-dom";
 import {getRecipe, Recipe} from "../../model/recipe-model";
 import './style.css';
+import {
+    RecipeDetailsBulletList,
+    RecipeDetailsDurationLoader,
+    RecipeDetailsHeaderLoader,
+    RecipeDetailsLoader
+} from "./loader";
 
 export type Match = {
     params?: string
@@ -22,33 +28,44 @@ const RecipeDetails = () => {
 
     return (
         <div className="recipe-details">
-            <Header />
+            {/*<Header />*/}
             <div className="recipe-modal__content">
-                <div className="recipe-modal__header">
-                    <h2>
-                        {recipe?.title}
-                    </h2>
-                </div>
-                <div className="recipe-modal__main">
-                    <div className="recipe-element main-duration">
-                        <label>Dauer: </label>
-                        <div className="element duration">
-                            {recipe?.duration}
+                {!recipe ?
+                    <>
+                        <RecipeDetailsHeaderLoader />
+                        <RecipeDetailsDurationLoader/>
+                        <RecipeDetailsBulletList />
+                        <RecipeDetailsLoader />
+                    </>
+                    :
+                    <>
+                        <div className="recipe-modal__header">
+                            <h2>
+                                {recipe?.title}
+                            </h2>
                         </div>
-                    </div>
-                    <div className="recipe-element main-ingredients">
-                        <label>Zutaten: </label>
-                        <div className="element ingredients">
-                            {recipe?.ingredients.map(ingredient => <li>{ingredient}</li>)}
+                        <div className="recipe-modal__main">
+                            <div className="recipe-element main-duration">
+                                <label>Dauer: </label>
+                                <div className="element duration">
+                                    {recipe?.duration}
+                                </div>
+                            </div>
+                            <div className="recipe-element main-ingredients">
+                                <label>Zutaten: </label>
+                                <div className="element ingredients">
+                                    {recipe?.ingredients.map(ingredient => <li>{ingredient}</li>)}
+                                </div>
+                            </div>
+                            <div className="recipe-element main-description">
+                                <label>Und so geht's: </label>
+                                <div className="element description">
+                                    {recipe?.description}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="recipe-element main-description">
-                        <label>Und so geht's: </label>
-                        <div className="element description">
-                            {recipe?.description}
-                        </div>
-                    </div>
-                </div>
+                    </>
+                }
             </div>
         </div>
     )

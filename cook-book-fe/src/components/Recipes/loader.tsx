@@ -1,7 +1,7 @@
 import ContentLoader from "react-content-loader";
 import * as React from "react";
 
-const RecipeDetailsLoader = () => (
+const RecipesLoader = () => (
     <ContentLoader
         height={100}
         width={"33%"}
@@ -15,6 +15,6 @@ const RecipeDetailsLoader = () => (
     </ContentLoader>
 );
 
-export default RecipeDetailsLoader;
+export default RecipesLoader;
 
 

@@ -1,9 +1,24 @@
 import * as React from 'react';
-import './style.css';
+import {ChangeEvent, FormEvent, useState} from 'react';
+import {useHistory} from "react-router-dom";
+
 import Submenu from "../Submenu";
 import {MenuItem, menuItems} from "../../config/menu";
+import './style.css';
 
-function Header() {
+const Header = () => {
+    const [searchParam, setSearchParam] = useState<string | undefined>();
+    let history = useHistory();
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchParam(e.target.value)
+    }
+
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        history.push(`/recipes?search=${searchParam}`)
+    };
+
     return (
         <header className="header">
             <nav>
@@ -20,8 +35,12 @@ function Header() {
                     </ul>
                 </div>
                 <div className="header-search">
-                    <form>
-                        <input type="search" placeholder="Search recipes" />
+                    <form onSubmit={(e: FormEvent) => handleSubmit(e)}>
+                        <input
+                            type="search"
+                            placeholder="Search recipes"
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}
+                        />
                         <input type="submit" />
                     </form>
                 </div>

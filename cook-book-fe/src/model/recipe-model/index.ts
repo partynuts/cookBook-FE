@@ -7,20 +7,15 @@ export type Recipe = {
     title: string;
 };
 
-
-export async function getRecipes(query: any): Promise<Recipe[]> {
-    console.log("GETTING RECIPES")
-    const recipes = await fetch(`http://localhost:5000/api/recipes?filter=${query}`)
+export async function getRecipes(query: string): Promise<Recipe[]> {
+    return await fetch(`http://localhost:5000/api/recipes?search=${query}`)
         .then(res => {
             console.log("RES", res);
             return res.json()
         });
-    console.log("RECIPES IN MODEL", recipes);
-    return recipes;
 }
 
 export function addRecipe(recipeContent: Recipe) {
-    console.log("ADDING RECIPE TO DB")
     return fetch('http://localhost:5000/api/recipes', {
         method: 'POST',
         headers: {
@@ -32,12 +27,9 @@ export function addRecipe(recipeContent: Recipe) {
 }
 
 export async function getRecipe(id: string): Promise<Recipe> {
-    console.log(`GETTING RECIPE FOR ${id}`)
-    const recipe = await fetch(`http://localhost:5000/api/recipes/${id}`)
+    return await fetch(`http://localhost:5000/api/recipes/${id}`)
         .then(res => {
             console.log("RES", res);
             return res.json()
         });
-    console.log("SINGLE RECIPE IN MODEL", recipe);
-    return recipe;
 }

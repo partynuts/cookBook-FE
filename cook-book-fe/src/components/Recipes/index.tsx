@@ -4,22 +4,21 @@ import Header from "../Header";
 import {Link, useLocation} from "react-router-dom";
 import {getRecipes, Recipe as RecipeDT} from "../../model/recipe-model";
 import './style.css';
-import RecipeDetailsLoader from "./loader";
+import RecipesLoader from "./loader";
 
 const Recipes = () => {
     const [recipes, setRecipes] = useState<RecipeDT[]>([]);
     let {search} = useLocation();
 
     const renderLoaderPlaceholder = () => {
-        console.log("RENDERING PLACEHOLDER")
         const fields: JSX.Element[] = [];
         for (let i = 1; i <= 30; i++) {
-            fields.push(<RecipeDetailsLoader key={i} />);
+            fields.push(<RecipesLoader key={i} />);
         }
         console.log("FIELDs", fields)
         return fields.map(field => field);
 
-        // return [...Array(numberOfPlaceholders)].map((placeholder, index) => (<RecipeDetailsLoader key={index}/>))
+        // return [...Array(numberOfPlaceholders)].map((placeholder, index) => (<RecipesLoader key={index}/>))
     };
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const Recipes = () => {
 
     return (
         <div className="App">
-            <Header />
+            {/*<Header />*/}
             <div className="recipes-page">
                 <h2>Recipes</h2>
                 {recipes.length > 0 ?

@@ -6,14 +6,15 @@ import Header from "./components/Header";
 import Recipes from "./components/Recipes";
 import AddRecipe2 from "./components/AddRecipe2";
 import RecipeDetails from "./components/RecipeDetails";
+
 // import AddRecipe from "./components/AddRecipe";
 
 function App() {
     return (
         <div className="site-wrapper">
             <Router>
+                <Header />
                 <Switch>
-                    <Route exact path="/"><Header /></Route>
                     <Route exact path="/categories"><Category /></Route>
                     <Route exact path="/recipes"><Recipes /></Route>
                     <Route exact path="/recipes/add"><AddRecipe2 /></Route>
