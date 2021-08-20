@@ -7,8 +7,10 @@ export type Recipe = {
     title: string;
 };
 
-export async function getRecipes(query: string): Promise<Recipe[]> {
-    return await fetch(`http://localhost:5000/api/recipes?search=${query}`)
+export async function getRecipes(query?: string | null): Promise<Recipe[]> {
+    const queryParam: any = query || '';
+console.log("QUERY PARAM", queryParam)
+    return await fetch(`http://localhost:5000/api/recipes?search=${queryParam}`)
         .then(res => {
             console.log("RES", res);
             return res.json()

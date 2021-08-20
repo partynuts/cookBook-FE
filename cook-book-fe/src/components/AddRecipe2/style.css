@@ -48,5 +48,39 @@
 }
 
 .submit-btn {
+    width: 100%;
+    height: 3vh;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.2vw;
+    background-color: darkgreen;
+    color: white;
+}
 
+button:hover {
+    cursor: pointer;
+}
+
+
+.success-message-wrapper {
+    width: 50%;
+    height: 5vh;
+    border-radius: 0.2vw;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.success-message-wrapper > div {
+    padding: 2vh 2vw;
+}
+
+.success-message-error {
+    border: solid 1px red;
+}
+
+.success-message-success {
+    border: solid 1px green;
 }

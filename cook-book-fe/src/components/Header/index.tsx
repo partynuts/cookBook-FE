@@ -50,35 +50,3 @@ const Header = () => {
 }
 
 export default Header;
-
-
-//                         <li className="navbar-item"><Link to="/recipe">Recipes</Link></li>
-
-
-// models/menu.ts
-// export async function getMenu(){
-//     const recipes = await getRecipes()
-//
-//     return recipes.map
-//     return [{
-//         label: "Categories",
-//         items: [
-//             {
-//                 name: 'All recipes',
-//                 component: '/recipes'
-//             },
-//             {
-//                 name: 'Salads',
-//                 component: '/recipes'
-//             },
-//             {
-//                 name: 'Soups',
-//                 component: '/recipes'
-//             },
-//             {
-//                 name: 'Add recipe',
-//                 component: '/recipes'
-//             },
-//         ]
-//     }]
-// }

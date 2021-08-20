@@ -5,6 +5,10 @@ import {useLocation} from "react-router-dom";
 import {addRecipe, getRecipes, Recipe as RecipeDt} from './../../model/recipe-model/index';
 import './style.css';
 import {getAllCategories} from "../../model/category-model";
+import classNames from "classnames";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faExclamation} from "@fortawesome/free-solid-svg-icons";
+import {SuccessMgs} from "../AddRecipe";
 
 const AddRecipe2 = () => {
     const [ingredients, setIngredients] = useState(['']);
@@ -16,7 +20,7 @@ const AddRecipe2 = () => {
         title: ''
     });
     const [categories, setCategories] = useState([])
-    const [successMsg, setSuccessMsg] = useState({});
+    const [successMsg, setSuccessMsg] = useState<SuccessMgs | undefined>();
 
     useEffect(() => {
         getAllCategories().then(setCategories);
@@ -24,28 +28,20 @@ const AddRecipe2 = () => {
     }, []);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>, i?: number) => {
-        // e.preventDefault();
-        console.log("TARGET", e, e.target)
-        console.log("TYPE ", typeof e.target)
-
         const {name, value} = e.target;
-        console.log("VALUE", value, "Name ", name)
 
         if (name === 'ingredients') {
             setRecipe({...recipe, [name]: ingredients});
         } else {
             setRecipe({...recipe, [name]: value});
         }
-        console.log("RECIPE", recipe)
     };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        console.log("SUBMIT EVENT FORM DETAILS", recipe)
 
         try {
-            const newRecipe = await addRecipe(recipe as RecipeDt)
-            console.log("NEW RECIPE", newRecipe)
+            await addRecipe(recipe as RecipeDt)
             setSuccessMsg({status: 'SUCCESS', msg: 'Danke für das Rezept.'})
         } catch (e) {
             console.log(e);
@@ -55,7 +51,6 @@ const AddRecipe2 = () => {
 
     return (
         <div className="App">
-            <Header />
             <div className="recipes-page">
                 <h2>Add new recipe</h2>
                 <div className="recipes-container">
@@ -92,15 +87,11 @@ const AddRecipe2 = () => {
                             )
                         })}
                         <div className='ingredient-wrapper'>
-                            {/*<label>Add ingredient:</label>*/}
                             <button type='button' className='ingredient-btn-add' onClick={() => setIngredients([...ingredients, ''])}>
                                 Add ingredient
                             </button>
                         </div>
 
-                        {/*<input type='text' name='ingredients' value={recipe.ingredients}*/}
-                        {/*    onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)}*/}
-                        {/*/>*/}
                         <label>Description:</label>
                         <textarea name='description' value={recipe.description}
                             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange(e)}
@@ -116,9 +107,21 @@ const AddRecipe2 = () => {
                             }
                         </select>
                         }
-                        <button className='submit-btn' type='submit' value='Submit' />
+                        <button className='submit-btn' type='submit' value='Submit'>Rezept speichern</button>
                     </form>
                 </div>
+                {successMsg &&
+                <div
+                  className={classNames('success-message-wrapper', `success-message-${successMsg?.status.toLowerCase()}`)}>
+                  <div className={`message-${successMsg?.status.toLowerCase()}`}>
+                      {successMsg?.status === "SUCCESS" ?
+                          <FontAwesomeIcon icon={faCheck} color='green' /> :
+                          <FontAwesomeIcon icon={faExclamation} color='red'/>
+                      }
+                  </div>
+                  <div> {successMsg.msg} </div>
+                </div>
+                }
             </div>
         </div>
     );
